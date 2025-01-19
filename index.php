@@ -12,15 +12,15 @@
         <p>Registro</p>
         <div class="input-wrapper">
             <input type="text" name="ticket" placeholder="Nro de ticket" >
-            <img class="input-icon" src="images/name.svg" alt="">
+            <img class="input-icon" src="images2/ticket.svg" alt="">
         </div>
         <div class="input-wrapper">
             <input type="text" name="name" placeholder="Nombre Completo" >
-            <img class="input-icon" src="images/name.svg" alt="">
+            <img class="input-icon" src="images2/profile.svg" alt="">
         </div>
         <div class="input-wrapper">
             <input type="email" name="email" placeholder="Email" >
-            <img class="input-icon" src="images/email.svg" alt="">
+            <img class="input-icon" src="images2/email.svg" alt="">
         </div>
         <div class="input-wrapper">
             <p class="question">¿Desea Certificado?</p>
@@ -31,11 +31,11 @@
         </div>
         <div class="input-wrapper">
             <input type="tel" name="phone" placeholder="Telefono" >
-            <img class="input-icon" src="images/phone.svg" alt="">
+            <img class="input-icon" src="images2/phone.svg" alt="">
         </div>
         <div class="input-wrapper">
             <input type="text" name="dni" placeholder="DNI" >
-            <img class="input-icon" src="images/password.svg" alt="">
+            <img class="input-icon" src="images2/id-card.svg" alt="">
         </div>
         <input type="submit" class="btn" name="register" value="Enviar">
     </form>
