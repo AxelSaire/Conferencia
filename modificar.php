@@ -10,14 +10,12 @@
     <div class="container">
         <h2>Registros de la Conferencia</h2>
         <?php
-        // Conexión a la base de datos
         include('conexion.php');
-
         // Consulta los datos existentes
         $consulta = "SELECT * FROM data";
         $resultado = mysqli_query($conex, $consulta);
 
-        // Generar la tabla de datos con botón "Modificar"
+        // Generar la tabla de datos con botón "Eliminar"
         if (mysqli_num_rows($resultado) > 0) {
             echo '<div class="table-container">
                     <table class="tabla">
@@ -41,9 +39,10 @@
                         <td>' . $row['dni'] . '</td>
                         <td>' . $row['fecha'] . '</td>
                         <td>
-                            <form method="POST" action="modificar.php">
+                            <form method="POST" action="" onsubmit="return confirm(\'¿Está seguro de eliminar este registro?\');">
                                 <input type="hidden" name="ticket" value="' . $row['ticket'] . '">
-                                <button type="submit" class="btn-editar">Modificar</button>
+                                <input type="hidden" name="eliminar" value="1">
+                                <button type="submit" class="btn-eliminar">Eliminar</button>
                             </form>
                         </td>
                     </tr>';
@@ -53,7 +52,9 @@
         } else {
             echo '<p class="no-records">No se encontraron registros</p>';
         }
+        include('registrar.php');
         ?>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

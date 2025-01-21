@@ -3,12 +3,7 @@ include("conexion.php");
 
 if(isset($_POST['register'])){
     if(
-        strlen($_POST['ticket']) >=1 &&
-        strlen($_POST['name']) >= 1 &&
-        strlen($_POST['email']) >= 1 &&
-        strlen($_POST['certificado']) &&
-        strlen($_POST['phone']) >=1 &&
-        strlen($_POST['dni']) >=1
+        strlen($_POST['ticket']) >=1
     ){
             $ticket = trim($_POST['ticket']);
             $name = trim($_POST['name']);
@@ -41,5 +36,19 @@ if(isset($_POST['register'])){
         <?php
     }
 }
-
+if(isset($_POST['eliminar']) && isset($_POST['ticket'])) {
+    $ticket = $_POST['ticket'];
+    $eliminar = "DELETE FROM data WHERE ticket = '$ticket'";
+    
+    if(mysqli_query($conex, $eliminar)) {
+        session_start();
+        $_SESSION['mensaje'] = "<h3 class='success' id='successMessage'>Registro eliminado correctamente</h3>";
+        
+        // Redireccionar a la misma página
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    } else {
+        echo "<h3 class='error' id='failedMessage'>Error al eliminar el registro</h3>";
+    }
+}
 ?>

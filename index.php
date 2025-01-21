@@ -13,34 +13,50 @@
 <form method="post" class="formulario">
         <h2>Bienvenido a la conferencia</h2>
         <p>Registro de asistencia</p>
+        
         <div class="input-wrapper">
-            <input type="text" name="ticket" placeholder="Nro de ticket" >
+            <input type="text" name="ticket" placeholder="Nro de ticket">
             <img class="input-icon" src="images2/ticket.svg" alt="">
         </div>
-        <div class="input-wrapper">
-            <input type="text" name="name" placeholder="Nombre Completo" >
-            <img class="input-icon" src="images2/profile.svg" alt="">
-        </div>
-        <div class="input-wrapper">
-            <input type="email" name="email" placeholder="Email" >
-            <img class="input-icon" src="images2/email.svg" alt="">
-        </div>
+        
         <div class="input-wrapper" id="selection">
-            <p class="question">¿Desea Certificado?</p>
-            <img class="input-icon" src="images2/certificate.svg">
-            <select name="certificado">
-                <option value=1>Si</option>
-                <option value=0>No</option>
-            </select>
+            <p class="question">¿Desea Certificado?, materiales de los ponentes, eboook con pautas de responsabilidad por edades para los hijos</p>
+            <img class="input-icon" src="images2/certificate.svg" alt="">
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="certificado" value="1" id="certificado-si"> Sí
+                </label>
+                <label>
+                    <input type="radio" name="certificado" value="0" id="certificado-no" checked> No
+                </label>
+            </div>
         </div>
-        <div class="input-wrapper">
-            <input type="tel" name="phone" placeholder="Telefono" >
-            <img class="input-icon" src="images2/phone.svg" alt="">
+        
+        <!-- Opciones adicionales que se mostrarán dinámicamente -->
+        <div id="extra-options" style="display: none;">
+            <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Nombre Completo">
+                <img class="input-icon" src="images2/profile.svg" alt="">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="tel" name="phone" placeholder="Teléfono">
+                <img class="input-icon" src="images2/phone.svg" alt="">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="email" name="email" placeholder="Email">
+                <img class="input-icon" src="images2/email.svg" alt="">
+            </div>
+
+            <div class="input-wrapper">
+                <input type="text" name="dni" placeholder="DNI">
+                <img class="input-icon" src="images2/id-card.svg" alt="">
+            </div>
         </div>
-        <div class="input-wrapper">
-            <input type="text" name="dni" placeholder="DNI" >
-            <img class="input-icon" src="images2/id-card.svg" alt="">
-        </div>
+        
+
+        
         <input type="submit" class="btn-enviar" name="register" value="Enviar">
         <button type="button" class="btn-modificar" onclick="window.location.href='modificar.php'">Modificar</button>
     </form>
