@@ -54,6 +54,7 @@
         }
         include('registrar.php');
         ?>
+        <div><button type="button" class="btn-atras" onclick="window.location.href='index.php'">Atras</button></div>
     </div>
     <script src="script.js"></script>
 </body>

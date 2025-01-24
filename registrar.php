@@ -3,16 +3,15 @@ include("conexion.php");
 
 if(isset($_POST['register'])){
     if(
-        strlen($_POST['ticket']) >=1
+        strlen($_POST['ticket']) >=3
     ){
             $ticket = trim($_POST['ticket']);
             $name = trim($_POST['name']);
-            $email = trim($_POST['email']);
             $certificado = trim($_POST['certificado']);
             $phone = trim($_POST['phone']);
             $dni = trim($_POST['dni']);
             $fecha = date("d/m/y");
-            $checkTicketQuery = "SELECT * FROM data WHERE ticket = '$ticket'";
+            $checkTicketQuery = "SELECT * FROM asistencia WHERE ticket = '$ticket'";
             $checkTicketResult = mysqli_query($conex, $checkTicketQuery);
             
             if (mysqli_num_rows($checkTicketResult) > 0) {
@@ -20,12 +19,13 @@ if(isset($_POST['register'])){
                 echo '<h3 class="error" id="failedMessage">Este ticket ya fue registrado</h3>';
             } else {
                 // Si el ticket no existe, procede a insertar los datos
-                $consulta = "INSERT INTO data(ticket, nombre, email, certificado, telefono, dni, fecha)
-                             VALUES('$ticket','$name', '$email','$certificado','$phone','$dni','$fecha')";
+                $consulta = "INSERT INTO asistencia(ticket, certificado, nombre, dni, celular, fecha)
+                VALUES('$ticket','$certificado','$name','$dni','$phone','$fecha')";
                 $resultado = mysqli_query($conex, $consulta);
             
                 if ($resultado) {
                     echo '<h3 class="success" id="successMessage">Tu registro se ha completado</h3>';
+                    header('Location: whatsapp.php');
                 } else {
                     echo '<h3 class="error">Ocurrió un error al registrar los datos</h3>';
                 }
